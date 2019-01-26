@@ -1,3 +1,7 @@
+<?php
+require_once "image.php";
+list ($image,$_SESSION['image']) = image();
+?>
 <html>
 <head>
 <meta charset="utf-8">
@@ -6,7 +10,7 @@
 </head>
 <form action="login.php" method="post">
     <label>メールアドレス</label>
-    <input type="email" name="mail">
+    <input type="email" name="email">
     <label>パスワード</label>
     <input type="password" name="password">
     <label for="exampleInputEmail1">Captcha</label>
