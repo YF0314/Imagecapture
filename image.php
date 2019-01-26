@@ -5,19 +5,17 @@
 * @author Yukky
 * @copyright 2018~ @Xere_Yukky
 */ 
-require "define.php";
 
 function image() {
 try{
-$dsn = 'mysql:host='.DBServer.';dbname='DBNAME';charset=utf8';
-$db = new PDO($dsn,DBUser,DBPassword);
+$dsn = 'mysql:host=DBSERVER;dbname=DBNAME;charset=utf8';
+$db = new PDO($dsn,'DBUSER','DBPASSWORD');
 $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $sql = 'SELECT count(id) FROM Caputcha_Image';
 $prepare = $db->prepare($sql);
 $prepare->execute();
 $images_count = $prepare->fetchColumn();
-
 }catch (PDOException $e) {
 return false;
 }
